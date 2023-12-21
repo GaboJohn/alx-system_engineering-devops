@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Bash script that displays:
+#The content of the current directory
+#In a list format
+
+items=$(ls)
+for i in $items; do
+  echo "$i" | cut -d '-' -f2
+done
