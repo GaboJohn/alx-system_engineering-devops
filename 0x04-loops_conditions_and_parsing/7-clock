@@ -4,20 +4,15 @@
 #display minutes from 1 to 59
 
 hour=0
-while [ $hour -le 1 ]; do
-    if [ $hour -eq 0 ]; then
+while [ $hour -le 1 ]
+do
         echo "Hour: $hour"
-    else
-        echo "Hour: $hour"
-    fi
 
     minute=1
-    while [ $minute -le 59 ]; do
+    while [ $minute -le 59 ]
+    do
         echo "$minute"
         ((minute++))
-        if [ $((hour * 60 + minute)) -eq 70 ]; then
-            break 2
-        fi
     done
 
     ((hour++))
