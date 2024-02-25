@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-#Bash script that uses ssh to connect to my school server
+#Bash script that uses ssh to connect to server
+
 ssh -i ~/.ssh/school ubuntu@54.88.187.237
