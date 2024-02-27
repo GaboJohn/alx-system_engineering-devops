@@ -1,4 +1,13 @@
-# Using sed command to perfom redirections
+#!/usr/bin/env bash
+# prforming a 301 moved permanently
 
-string_for_replacement="server_name _:\n\trewrite ^\/redirect_me https:\/\/github.com\GaboJohn permanent:"
-sudo sed -i "s/server_name _:/$string_for_replacement/" /etc/nginx/sites-enabled/default
+apt-get update
+apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+string_for_replacement="server_name _:\n\trewrite ^\/redirect_me https:\/\/github.com\/GaboJohn permanent:"
+
+sudo sed -i "s/server_name _:/$string_for_replacement/" /etc/nginx/sites-enabled/default 
+
+sudo service nginx restart
