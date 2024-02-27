@@ -2,11 +2,11 @@
 # install nginx on web-01
 
 sudo apt-get update
-sudo apt-get install nginx
-sudo ufw 'Nginx HTTP'
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
 
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-sudo ngix -t 
+sudo nginx -t
 
 sudo service nginx reload
