@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """
-Script to gather data from an API and display TODO list progress for a given employee ID.
+Script to gather data from an API and display TODO
+list progress for a given employee ID.
 """
 
 import requests
 import sys
+
 
 def gather_data(employee_id):
     """
@@ -28,7 +30,8 @@ def gather_data(employee_id):
     completed_tasks = sum(1 for task in todos_data if task.get('completed'))
 
     # Displaying progress
-    print("Employee {} is done with tasks({}/{}):".format(employee_name, completed_tasks, total_tasks))
+    print("Employee {} is done with tasks({}/{}):".format(employee_name,
+          completed_tasks, total_tasks))
     for task in todos_data:
         if task.get('completed'):
             print("\t {}".format(task.get('title')))
