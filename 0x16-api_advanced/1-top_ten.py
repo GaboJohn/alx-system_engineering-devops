@@ -6,22 +6,27 @@ given subreddit.
 '''
 
 import requests
-from sys import argv
+import time
 
 
 def top_ten(subreddit):
-    '''
-        returns the top ten posts for a given subreddit
-    '''
+    """
+    Queries the Reddit API and prints the titles of the first 10 hot posts
+
+    Args:
+        subreddit (str): The name of the subreddit to retrieve hot posts from.
+
+    Returns:
+        None
+    """
     user = {'User-Agent': 'GaboJohn'}
-    url = requests.get('https://www.reddit.com/r/{}/hot/.json?limit=10'
+    url = requests.get('https://www.reddit.com/r/{}/about.json'
                        .format(subreddit), headers=user).json()
     try:
-        for post in url.get('data').get('children'):
-            print(post.get('data').get('title'))
+        return url.get('data').get('subscribers')
     except Exception:
-        print(None)
+        return 0
 
 
 if __name__ == "__main__":
-    top_ten(argv[1])
+    number_of_subscribers(argv[1])
